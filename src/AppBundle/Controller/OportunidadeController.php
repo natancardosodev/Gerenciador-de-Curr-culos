@@ -1,14 +1,9 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Lab05usuario11
- * Date: 12/05/2018
- * Time: 15:06
- */
 
 namespace AppBundle\Controller;
 
 use Domain\Model\Oportunidade;
+use AppBundle\Service\OportunidadeService;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -21,15 +16,17 @@ class OportunidadeController extends Controller
      * @Method("POST")
      * @param Request $request
      */
-    public function salvarAction(Request $request){
+    public function salvarAction(Request $request)
+    {
         $serializerService = $this->get('infra.serializer.service');
-
-        try{
+        $oportunidadeService = $this->get('app.oportunidade.service');
+        try {
             $oportunidade = $serializerService->converter($request->getContent(), Oportunidade::class);
-            dump($oportunidade); die;
-        }catch (\Exception $exception){
+            $oportunidadeService->salvar($oportunidade);
+        } catch (\Exception $exception) {
             dump($exception->getMessage()); die;
         }
+        dump("Deu certo"); die;
 
     }
 }

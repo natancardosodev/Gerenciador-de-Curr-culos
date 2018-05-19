@@ -8,8 +8,6 @@
 
 namespace Domain\Model;
 
-use JMS\Serializer\Annotation as Serializer;
-
 class Oportunidade
 {
     /**
@@ -18,25 +16,25 @@ class Oportunidade
     private $idOportunidade;
 
     /**
-     * @Serializer\Type("string")
      * @var string
      */
     private $descricao;
 
     /**
      * @var \DateTime
-     * @Serializer\SerializedName("periodoInicial")
-     * @Serializer\Type("DateTime<'d/m/Y'>")
      *
      */
     private $periodoInicial;
 
     /**
      * @var \DateTime
-     * @Serializer\SerializedName("periodoFinal")
-     * @Serializer\Type("DateTime<'d/m/Y'>")
      */
     private $periodoFinal;
+
+    /**
+     * @var int
+     */
+    private $qtdVagas;
 
     /**
      * Oportunidade constructor.
@@ -46,7 +44,7 @@ class Oportunidade
      */
     public function __construct(
         string $descricao,
-        \DataTime $periodoInicial,
+        \DateTime $periodoInicial,
         \DateTime $periodoFinal)
     {
         $this->descricao = $descricao;
@@ -77,8 +75,5 @@ class Oportunidade
     {
         return $this->periodoFinal;
     }
-
-
-
 
 }
