@@ -8,7 +8,7 @@
 
 namespace Domain\Model;
 
-use Doctrine\ORM\Mapping\Table;
+use JMS\Serializer\Annotation as Serializer;
 
 class Oportunidade
 {
@@ -16,16 +16,25 @@ class Oportunidade
      * @var int
      */
     private $idOportunidade;
+
     /**
+     * @Serializer\Type("string")
      * @var string
      */
     private $descricao;
-    /**
-     * @var \DataTime
-     */
-    private $periodoInicial;
+
     /**
      * @var \DateTime
+     * @Serializer\SerializedName("periodoInicial")
+     * @Serializer\Type("DateTime<'d/m/Y'>")
+     *
+     */
+    private $periodoInicial;
+
+    /**
+     * @var \DateTime
+     * @Serializer\SerializedName("periodoFinal")
+     * @Serializer\Type("DateTime<'d/m/Y'>")
      */
     private $periodoFinal;
 
