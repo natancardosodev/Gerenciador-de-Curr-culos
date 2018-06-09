@@ -7,31 +7,33 @@
  */
 
 namespace Infrastructure\Service;
-
-
+use JMS\Serializer\SerializationContext;
 use JMS\Serializer\Serializer;
-
-class SerializerService
-{
+class SerializerService{
     /**
      * @var Serializer
      */
     private $serializer;
-
     /**
      * SerializerService constructor.
-     * @param Serializer $serializer
+     * @param Serializer $serialize
      */
     public function __construct(Serializer $serializer)
     {
         $this->serializer = $serializer;
     }
-    public function converter($json, $tipo)
-    {
-        try {
+    public function converter($json, $tipo){
+        try{
             return $this->serializer->deserialize($json, $tipo, 'json');
-        }catch(\Exception $exception){
+        }catch (\ErrorException  $exception){
             dump($exception->getMessage()); die;
         }
+    }
+    public function  toJsonGroups($data, array $groups = ['default']){
+        return $this->serializer->serialize(
+            $data,
+            'json',
+            SerializationContext::create()->setGroups($groups)
+        );
     }
 }
