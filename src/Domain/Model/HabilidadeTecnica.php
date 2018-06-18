@@ -1,30 +1,22 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * User: lab05usuario12
+ * Date: 09/06/2018
+ * Time: 10:10
+ */
 
 namespace Domain\Model;
-class ExperienciaProfissional
+
+
+class HabilidadeTecnica
 {
     /**
      * @var int
      */
-    private $idExperiencialProficional;
-    /**
-     * @var string
-     */
-    private $cargo;
+    private $idHabilidadeTecnica;
     /**
      * @var string
      */
     private $descricao;
-    /**
-     * @var \DateTime
-     */
-    private $periodoInicial;
-    /**
-     * @var \DateTime
-     */
-    private $periodoFinal;
-    /**
-     * @var boolean
-     */
-    private $trabalhoAtual;
 }

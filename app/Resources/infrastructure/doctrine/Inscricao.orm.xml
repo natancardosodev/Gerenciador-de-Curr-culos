@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping">
 
-    <entity repository-class="Infrastructure\Persistence\Doctrine\OportunidadeRepository"
+    <entity repository-class="Infrastructure\Persistence\Doctrine\InscricaoRepository"
             name="Domain\Model\Inscricao" table="inscricao">
         <id name="idInscricao" type="integer" column="id_inscricao">
             <generator strategy="AUTO" />
@@ -11,6 +11,9 @@
         <field name="ativa" type="boolean" column="is_ativa" />
 
         <many-to-one target-entity="Domain\Model\Candidato" field="candidato">
+            <cascade>
+                <cascade-persist/>
+            </cascade>
             <join-columns>
                 <join-column name="id_candidato" referenced-column-name="id_candidato"/>
             </join-columns>

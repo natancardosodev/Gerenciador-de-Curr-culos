@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping">
 
-    <entity repository-class="Infrastructure\Persistence\Doctrine\OportunidadeRepository"
-            name="Domain\Model\ExperienciaProfissional" table="experiencia_profissional">
-        <id name="idExperiencialProfissional" type="integer" column="id_experiencia_profissional">
+    <entity name="Domain\Model\ExperienciaProfissional"
+            table="experiencia_profissional">
+        <id name="idExperienciaProfissional" type="integer" column="id_experiencia_profissional">
             <generator strategy="AUTO" />
         </id>
 

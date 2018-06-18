@@ -14,7 +14,9 @@ class OportunidadeController extends Controller
      * @Method("POST")
      * @param Request $request
      */
-    public function salvarAction(Request $request){
+    public function salvarAction(Request $request
+
+    ){
         $serializerService = $this->get('infra.serializer.service');
         $oportunidadeService = $this->get('app.oportunidade.service');
         try{

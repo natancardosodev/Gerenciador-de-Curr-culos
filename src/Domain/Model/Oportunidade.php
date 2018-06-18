@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Lab05usuario11
- * Date: 12/05/2018
- * Time: 14:49
- */
 
 namespace Domain\Model;
 
@@ -53,6 +47,14 @@ class Oportunidade
     }
 
     /**
+     * @return int
+     */
+    public function getIdOportunidade()
+    {
+        return $this->idOportunidade;
+    }
+
+    /**
      * @return string
      */
     public function getDescricao()
@@ -61,7 +63,7 @@ class Oportunidade
     }
 
     /**
-     * @return \DataTime
+     * @return \DateTime
      */
     public function getPeriodoInicial()
     {

@@ -1,14 +1,18 @@
 imports:
     - { resource: parameters.yml }
+    - { resource: events.yml }
     - { resource: security.yml }
     - { resource: services.yml }
-    - { resource: serializer.yml }
-    - { resource: repositories.yml }
+    - { resource: serializer.yml}
+    - { resource: repositories.yml}
+
+
+
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
-    locale: pt-BR
+    locale: pt-br
 
 framework:
     #esi: ~
@@ -62,10 +66,11 @@ doctrine:
             default:
                 mappings:
                     Domain:
-                        dir: '%kernel.root_dir%/../app/Resources/infrastructure/doctrine/'
+                        dir: '%kernel.root_dir%/../app/Resources/infrastructure/doctrine'
                         type: xml
                         prefix: Domain\Model
                         is_bundle: false
+
 
 
 # Swiftmailer Configuration
